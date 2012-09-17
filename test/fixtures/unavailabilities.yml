@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  employee_id: 1
+  start_time: 2012-09-16 19:07:00
+  finish_time: 2012-09-16 19:07:00
+  day: 1
+
+two:
+  employee_id: 1
+  start_time: 2012-09-16 19:07:00
+  finish_time: 2012-09-16 19:07:00
+  day: 1

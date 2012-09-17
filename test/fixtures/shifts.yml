@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  store_id: 1
+  day: MyString
+  start_time: 2012-09-16 10:29:08
+  finish_time: 2012-09-16 10:29:08
+  break_time: 2012-09-16 10:29:08
+  shift_type: MyString
+  orders_to_place: MyString
+
+two:
+  store_id: 1
+  day: MyString
+  start_time: 2012-09-16 10:29:08
+  finish_time: 2012-09-16 10:29:08
+  break_time: 2012-09-16 10:29:08
+  shift_type: MyString
+  orders_to_place: MyString
