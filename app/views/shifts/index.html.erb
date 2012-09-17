@@ -1,11 +1,10 @@
-<h1>Listing shifts</h1>
+<h1>Standard shifts</h1>
 
 <table class="table">
   <tr>
     <th>Store</th>
     <th>Day</th>
-    <th>Start time</th>
-    <th>Finish time</th>
+    <th>Shift</th>
     <th>Break time</th>
     <th>Shift type</th>
     <th>Orders to place</th>
@@ -13,23 +12,142 @@
     <th></th>
     <th></th>
   </tr>
+  
+ 
 
 <% @shifts.each do |shift| %>
   <tr>
     <td><%= shift.store.name %></td>
     <td><%= shift.day %></td>
-    <td><%= shift.start_time %></td>
-    <td><%= shift.finish_time %></td>
-    <td><%= shift.break_time %></td>
+    <td><%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %></td>
+    <td><%= shift.break_time .strftime('%I:%M %p') %></td>
     <td><%= shift.shift_type %></td>
     <td><%= shift.orders_to_place %></td>
     <td><%= link_to 'Show', shift %></td>
     <td><%= link_to 'Edit', edit_shift_path(shift) %></td>
     <td><%= link_to 'Destroy', shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+   
 <% end %>
-</table>
 
+   
+	  
+
+
+
+
+</table>
+<br />
 <br />
 
-<%= link_to 'New Shift', new_shift_path %>
+<h1>ROSTER</h1>
+<table border="2"> 
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>26-Sep-2012</td>
+    <td>27-Sep-2012</td>
+    <td>28-Sep-2012</td>
+    <td>29-Sep-2012</td>
+    <td>30-Sep-2012</td>
+    <td>1-Oct-2012</td>
+    <td>2-Oct-2012</td>
+    <td>Total Hours</td>
+    
+  </tr> 
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Wed</td>
+    <td>Thur</td>
+    <td>Fri</td>
+    <td>Sat</td>
+    <td>Sun</td>
+    <td>Mon</td>
+    <td>Tues</td>
+    <td>&nbsp;</td>
+    
+  </tr> 
+  <tr>
+    <td>Ashley</td>
+    <td>Shift</td>
+		<td align="center">
+      <select class="element select small" id="element_1" name="element_1"> 
+			  <option value="" selected="selected"></option>
+        <option value="1" >6am - 2:30pm</option>
+        <option value="2" >7am - 3pm</option>
+        <option value="3" >6pm - 10:30pm</option>
+      </select>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    
+  </tr>
+   <tr>
+     <td>Knight</td>
+     <td>Break</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     <td>&nbsp;</td>
+     
+   </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>Number of Hrs</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>0</td>
+      
+    </tr>
+     <tr>
+       <td>&nbsp;</td>
+       <td>Role</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       
+     </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>N/A</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        
+      </tr>
+      
+     
+  	  <% @shifts.each do |shift| %>
+      <select>
+      <option><%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %></option>
+          
+    </select>
+  
+         
+         
+  <% end %> 
+          
