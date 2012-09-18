@@ -1,5 +1,8 @@
 class Employee < ActiveRecord::Base
+  
   attr_accessible :dob, :email, :first_name, :home_phone, :last_name, :mobile, :role, :store_ids
+  
+  validates_presence_of :dob, :email, :first_name, :home_phone, :last_name, :mobile, :role, :store_ids
   
   has_many :employments
   has_many :stores, through: :employments
