@@ -19,8 +19,8 @@
   <tr>
     <td><%= shift.store.name %></td>
     <td><%= shift.day %></td>
-    <td><%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %></td>
-    <td><%= shift.break_time .strftime('%I:%M %p') %></td>
+    <td><%= shift.start_time .strftime('%l:%M %p') %> - <%= shift.finish_time .strftime('%l:%M %p') %></td>
+    <td><%= shift.break_time .strftime('%l:%M %p') %></td>
     <td><%= shift.shift_type %></td>
     <td><%= shift.orders_to_place %></td>
     <td><%= link_to 'Show', shift %></td>
@@ -70,7 +70,7 @@
         <th align="center">TUESDAY</th>
         <th align="right">TOTAL HOURS</th>
       </tr>  
-      <% staffname.each do |employee|%>
+      <% Employee.all.each do |employee|%>
       <tr>
         <td width='100px'>
       <%= employee.first_name %> <br /> <%= employee.last_name %>
@@ -79,19 +79,70 @@
       Shift<br />Break<br />Hours<br />Role<br />N/A
         </td>
     		<td align="center">
-      <% shift_time = Shift.all %> 
-        <select>
-          <% shift_time.each do |shift| %>
-            <option>
-              <%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %>
-            </option>
-      <% end %>
-        </select> 
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
         <br />
         Break time <br />
         Hours<br />
         Role<br />
         NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+    		<td align="center">
+      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
+       
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
+        <td align='center'>
+          hours_worked
         </td>
       </tr>
     <% end %>
@@ -101,10 +152,14 @@
   
   </table>
     
+  <br />
+   <br />
+   Calculate hours of shifts
+    <br />
+ 
+<%= @shifts.collect{|s| (s.finish_time - s.start_time) / 3600} %>
    
-    
-    
     
       
-   
+ 
           
