@@ -154,11 +154,10 @@
     
   <br />
    <br />
-   Calculate hours of shifts
-    <br />
- 
-<%= @shifts.collect{|s| (s.finish_time - s.start_time) / 3600} %>
    
+   Breaks <%= @shifts.collect{|b| (b.break_time .strftime('%l:%M %p'))} %><br />
+   Hours <%= @shifts.collect{|h| (h.finish_time - h.start_time) / 3600} %><br />
+   Roles <%= @shifts.collect{|r| (r.shift_type)} %><br />
     
       
  
