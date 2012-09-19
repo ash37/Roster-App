@@ -33,114 +33,78 @@
 <br />
 <%= link_to 'New Shift', new_shift_path %>
 <br />
+
+
+
+
+
+
+
+
 <h1>ROSTER</h1>
-<table border="2"> 
-  <tr>
-    <td></td>
-    <td>&nbsp;</td>
-    <td>26-Sep-2012</td>
-    <td>27-Sep-2012</td>
-    <td>28-Sep-2012</td>
-    <td>29-Sep-2012</td>
-    <td>30-Sep-2012</td>
-    <td>1-Oct-2012</td>
-    <td>2-Oct-2012</td>
-    <td>Total Hours</td>
+
    
-  </tr> 
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>Wed</td>
-    <td>Thur</td>
-    <td>Fri</td>
-    <td>Sat</td>
-    <td>Sun</td>
-    <td>Mon</td>
-    <td>Tues</td>
-    <td>&nbsp;</td>
-    
-  </tr> 
-  <tr>
-    <td>Ashley</td>
-    <td>Shift</td>
-		<td align="center">
-      <select class="element select small" id="element_1" name="element_1"> 
-			  
-        <option value="1" >6am - 2:30pm</option>
-        <option value="2" >7am - 3pm</option>
-        <option value="3" >6pm - 10:30pm</option>
-      </select>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    
-  </tr>
-   <tr>
-     <td>Knight</td>
-     <td>Break</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     
-   </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>Number of Hrs</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>0</td>
-      
-    </tr>
-     <tr>
-       <td>&nbsp;</td>
-       <td>Role</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       <td>&nbsp;</td>
-       
-     </tr>
+   <% staffname = Employee.all %>
+    <table border="2">
       <tr>
-        <td>&nbsp;</td>
-        <td>N/A</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        
+        <td></td>
+        <td></td>
+        <th align="center">26 AUG 2012</th>
+        <th align="center">27 AUG 2012</th>
+        <th align="center">28 AUG 2012</th>
+        <th align="center">29 AUG 2012</th>
+        <th align="center">30 AUG 2012</th>
+        <th align="center">1 SEP 2012</th>
+        <th align="center">2 SEP 2012</th>
+        <th align="right"></th>
+      </tr> 
+      <tr>
+        <td></td>
+        <td></td>
+        <th align="center">WEDNESDAY</th>
+        <th align="center">THURSDAY</th>
+        <th align="center">FRIDAY</th>
+        <th align="center">SATURDAY</th>
+        <th align="center">SUNDAY</th>
+        <th align="center">MONDAY</th>
+        <th align="center">TUESDAY</th>
+        <th align="right">TOTAL HOURS</th>
+      </tr>  
+      <% staffname.each do |employee|%>
+      <tr>
+        <td width='100px'>
+      <%= employee.first_name %> <br /> <%= employee.last_name %>
+        </td>
+        <td align='right' width='100px'>
+      Shift<br />Break<br />Hours<br />Role<br />N/A
+        </td>
+    		<td align="center">
+      <% shift_time = Shift.all %> 
+        <select>
+          <% shift_time.each do |shift| %>
+            <option>
+              <%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %>
+            </option>
+      <% end %>
+        </select> 
+        <br />
+        Break time <br />
+        Hours<br />
+        Role<br />
+        NA
+        </td>
       </tr>
-      
-     <select>
-  	  <% @shifts.each do |shift| %>
-      
-      <option><%= shift.start_time .strftime('%I:%M %p') %> - <%= shift.finish_time .strftime('%I:%M %p') %></option>
-          
-    </select>
+    <% end %>
+    
+        
   
-         
-         
-  <% end %> 
+  
+  </table>
+    
+   
+    
+    
+    
+      
+   
           
