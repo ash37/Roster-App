@@ -15,7 +15,7 @@ class Shift < ActiveRecord::Base
   end
   
   def hours_worked
-  "((finish_time - start_time) / 1.hour).round"
+  ((finish_time - start_time) / 1.hour).round
   end
   
 end

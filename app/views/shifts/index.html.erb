@@ -45,7 +45,7 @@
 
    
    <% staffname = Employee.all %>
-    <table border="2">
+    <table>
       <tr>
         <td></td>
         <td></td>
@@ -72,10 +72,10 @@
       </tr>  
       <% Employee.all.each do |employee|%>
       <tr>
-        <td width='100px'>
+        <td>
       <%= employee.first_name %> <br /> <%= employee.last_name %>
         </td>
-        <td align='right' width='100px'>
+        <td>
       Shift<br />Break<br />Hours<br />Role<br />N/A
         </td>
         <% (0..6).each do |i| %>
@@ -87,7 +87,7 @@
             NA
           </td>
         <% end %>
-        <td align='center'>
+        <td>
           hours_worked
         </td>
       </tr>
