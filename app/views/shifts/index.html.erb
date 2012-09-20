@@ -16,7 +16,7 @@
  
 
 <% @shifts.each do |shift| %>
-  <tr>
+xxxxxx  <tr>
     <td><%= shift.store.name %></td>
     <td><%= shift.day %></td>
     <td><%= shift.start_time .strftime('%l:%M %p') %> - <%= shift.finish_time .strftime('%l:%M %p') %></td>
@@ -61,13 +61,13 @@
       <tr>
         <td></td>
         <td></td>
+        <th align="center">SUNDAY</th>
+        <th align="center">MONDAY</th>
+        <th align="center">TUESDAY</th>
         <th align="center">WEDNESDAY</th>
         <th align="center">THURSDAY</th>
         <th align="center">FRIDAY</th>
         <th align="center">SATURDAY</th>
-        <th align="center">SUNDAY</th>
-        <th align="center">MONDAY</th>
-        <th align="center">TUESDAY</th>
         <th align="right">TOTAL HOURS</th>
       </tr>  
       <% Employee.all.each do |employee|%>
@@ -78,69 +78,15 @@
         <td align='right' width='100px'>
       Shift<br />Break<br />Hours<br />Role<br />N/A
         </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
-    		<td align="center">
-      <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %> 
-       
-        <br />
-        Break time <br />
-        Hours<br />
-        Role<br />
-        NA
-        </td>
+        <% 7.times do |i| %>
+          <td>
+            <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %><br>
+            Break time<br>
+            Hours<br>
+            Role<br>
+            NA
+          </td>
+        <% end %>
         <td align='center'>
           hours_worked
         </td>
