@@ -78,9 +78,9 @@
         <td align='right' width='100px'>
       Shift<br />Break<br />Hours<br />Role<br />N/A
         </td>
-        <% 7.times do |i| %>
+        <% (0..6).each do |i| %>
           <td>
-            <%=  select "shift", "start_time_id", @shifts.collect {|p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %><br>
+            <%=  select "shift", "start_time_id", Shift.where(day: i).map{ |p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %><br>
             Break time<br>
             Hours<br>
             Role<br>
