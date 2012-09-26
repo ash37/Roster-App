@@ -1,0 +1,55 @@
+<h1>ROSTER</h1>
+
+   
+   <% staffname = Employee.all %>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <th>26 AUG 2012</th>
+        <th>27 AUG 2012</th>
+        <th>28 AUG 2012</th>
+        <th>29 AUG 2012</th>
+        <th>30 AUG 2012</th>
+        <th>1 SEP 2012</th>
+        <th>2 SEP 2012</th>
+        <th></th>
+      </tr> 
+      <tr>
+        <td></td>
+        <td></td>
+        <th>SUNDAY</th>
+        <th>MONDAY</th>
+        <th>TUESDAY</th>
+        <th>WEDNESDAY</th>
+        <th>THURSDAY</th>
+        <th>FRIDAY</th>
+        <th>SATURDAY</th>
+        <th>TOTAL HOURS</th>
+      </tr>  
+      <% Employee.all.each do |employee|%>
+      <tr>
+        <td>
+      <%= employee.first_name %> <br /> <%= employee.last_name %>
+        </td>
+        <td>
+      Shift<br />Break<br />Hours<br />Role<br />N/A
+        </td>
+        <% (0..6).each do |i| %>
+          <td>
+            <%=  select "shift", "start_time_id", Shift.where(day: i).map{ |p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %><br>
+            Break time<br>
+            Hours<br>
+            Role<br>
+            NA
+          </td>
+        <% end %>
+        <td>
+          hours_worked
+        </td>
+      </tr>
+    <% end %>
+  </table>
+Breaks <%= @shifts.collect{|b| (b.break_time .strftime('%l:%M %p'))} %><br />
+Hours <%= @shifts.collect{|h| (h.finish_time - h.start_time) / 3600} %><br />
+Roles <%= @shifts.collect{|r| (r.shift_type)} %><br />
