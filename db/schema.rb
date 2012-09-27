@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920032353) do
+ActiveRecord::Schema.define(:version => 20120927021436) do
 
   create_table "employees", :force => true do |t|
     t.string   "role"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20120920032353) do
     t.string   "orders_to_place"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.integer  "shiftable_id"
+    t.string   "shiftable_type"
   end
 
   create_table "stores", :force => true do |t|
