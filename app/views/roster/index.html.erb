@@ -1,19 +1,12 @@
-<h1>ROSTER</h1>
+<%= link_to '<', root_url(start_date: @dates.first - 7.days), class: 'btn btn-large prev pull-left' %>
+<%= link_to '>', root_url(start_date: @dates.first + 7.days), class: 'btn btn-large next pull-right' %>
 
 <table class="roster">
   <tr>
-    <th colspan="10">
-      <%= link_to '<', root_url(start_date: @dates.first - 7.days), class: 'btn btn-large prev pull-left' %>
-      <%= link_to '>', root_url(start_date: @dates.first + 7.days), class: 'btn btn-large next pull-right' %>
-    </th>
-  </tr>
-  <tr>
-    <th></th>
     <th></th>
     <% @dates.each do |date| %>
       <th><%=raw date.strftime('%A<br>%d %b %y') %></th>
     <% end %>
-    <th></th>
   </tr>
   <% Employee.all.each do |employee| %>
     <tr>
@@ -21,22 +14,11 @@
         <%= employee.first_name %><br>
         <%= employee.last_name %>
       </td>
-      <td>
-        Shift<br>
-        Break<br>
-        Hours<br>
-        Role<br>
-        Note<br>
-        N/A
-      </td>
       <% @dates.each do |date| %>
         <td>
-          <%= select "shift", "start_time_id", Shift.where(day: date.wday).map{ |p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Select Shift'},  class: 'input-medium' %>
+          <%= select "shift", "start_time_id", Shift.where(day: date.wday).map{ |p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Shift'},  class: 'input-medium' %>
         </td>
       <% end %>
-      <td>
-        hours_worked
-      </td>
     </tr>
   <% end %>
 </table>
