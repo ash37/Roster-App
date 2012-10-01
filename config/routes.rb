@@ -1,10 +1,9 @@
 RosterApp::Application.routes.draw do
-  resources :employees do
-    resources :shifts
-  end
+  resources :employees
   resources :stores do
+    resources :shifts
     resources :default_shifts
   end
 
-  root to: 'roster#index'
+  root to: 'stores#index'
 end
