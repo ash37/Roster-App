@@ -8,17 +8,13 @@
       <th><%=raw date.strftime('%A<br>%d %b %y') %></th>
     <% end %>
   </tr>
-  <% Employee.all.each do |employee| %>
-    <tr>
-      <td>
-        <%= employee.first_name %><br>
-        <%= employee.last_name %>
-      </td>
-      <% @dates.each do |date| %>
+  <% @employees.each do |employee| %>
+      <tr>
         <td>
-          <%= select "shift", "start_time_id", Shift.where(day: date.wday).map{ |p| [ p.start_time_finish_time_friendly, p.id ] }, {prompt: 'Shift'},  class: 'input-medium' %>
+          <%= employee.first_name %><br>
+          <%= employee.last_name %>
         </td>
-      <% end %>
-    </tr>
+        <%= render employee.shifts %>
+      </tr>
   <% end %>
 </table>

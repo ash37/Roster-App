@@ -1,0 +1,29 @@
+<h1>Listing default_shifts</h1>
+
+<table>
+  <tr>
+    <th>Store</th>
+    <th>Day</th>
+    <th>Start time</th>
+    <th>Finish time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @default_shifts.each do |default_shift| %>
+  <tr>
+    <td><%= default_shift.store_id %></td>
+    <td><%= default_shift.day %></td>
+    <td><%= default_shift.start_time %></td>
+    <td><%= default_shift.finish_time %></td>
+    <td><%= link_to 'Show', default_shift %></td>
+    <td><%= link_to 'Edit', edit_default_shift_path(default_shift) %></td>
+    <td><%= link_to 'Destroy', default_shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Default shift', new_default_shift_path %>

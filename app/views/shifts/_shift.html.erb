@@ -1,0 +1,6 @@
+<td>
+  <%= form_for [shift.employee, shift] do |f| %>
+    <%= f.hidden_field :date %>
+    <%= f.select :start_time_finish_time, DefaultShift.where(day: f.object.date.wday).map{ |s| s.start_time_finish_time }, {include_blank: 'Shift'},  class: 'input-medium shift_range' %>
+  <% end %>
+</td>

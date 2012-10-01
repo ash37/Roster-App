@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  store_id: 1
+  day: 1
+  start_time: 2012-09-27 16:45:42
+  finish_time: 2012-09-27 16:45:42
+
+two:
+  store_id: 1
+  day: 1
+  start_time: 2012-09-27 16:45:42
+  finish_time: 2012-09-27 16:45:42

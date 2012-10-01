@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927021436) do
+ActiveRecord::Schema.define(:version => 20120930085002) do
+
+  create_table "default_shifts", :force => true do |t|
+    t.integer  "store_id"
+    t.integer  "day"
+    t.string   "start_time"
+    t.string   "finish_time"
+    t.time     "break_time"
+    t.string   "duty"
+    t.string   "notes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "employees", :force => true do |t|
     t.string   "role"
@@ -33,17 +45,16 @@ ActiveRecord::Schema.define(:version => 20120927021436) do
   end
 
   create_table "shifts", :force => true do |t|
-    t.integer  "store_id"
-    t.integer  "day",             :limit => 255
-    t.time     "start_time"
-    t.time     "finish_time"
+    t.string   "start_time"
+    t.string   "finish_time"
     t.time     "break_time"
-    t.string   "shift_type"
-    t.string   "orders_to_place"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "shiftable_id"
-    t.string   "shiftable_type"
+    t.string   "duty"
+    t.string   "notes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "employee_id"
+    t.integer  "store_id"
+    t.date     "date"
   end
 
   create_table "stores", :force => true do |t|

@@ -2,10 +2,10 @@ class Employee < ActiveRecord::Base
   validates_presence_of :dob, :email, :first_name, :home_phone, :last_name, :mobile, :role, :store_ids
   
   has_many :employments
-  has_many :stores, through: :employments
   has_many :unavailabilities
-  has_many :shifts, as: :shiftable
+  has_many :shifts
   accepts_nested_attributes_for :unavailabilities, allow_destroy: true
+  accepts_nested_attributes_for :shifts
   
   ROLES = ['Sandwich Artist', 'Shift Supervisor', 'Manager', 'Area Manager']
   RATES = [9.79, 10.94, 13.06, 15.18, 17.29, 19.72, 21.17, 21.99, 22.40] 
@@ -49,5 +49,7 @@ class Employee < ActiveRecord::Base
       now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
     
-    
+  def find_or_initialize_shift_by_date(date)
+    shifts.find_or_initialize_by_date
+  end
 end

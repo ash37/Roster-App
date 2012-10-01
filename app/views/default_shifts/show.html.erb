@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Store:</b>
+  <%= @default_shift.store_id %>
+</p>
+
+<p>
+  <b>Day:</b>
+  <%= @default_shift.day %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @default_shift.start_time %>
+</p>
+
+<p>
+  <b>Finish time:</b>
+  <%= @default_shift.finish_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_default_shift_path(@default_shift) %> |
+<%= link_to 'Back', default_shifts_path %>
