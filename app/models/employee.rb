@@ -2,6 +2,7 @@ class Employee < ActiveRecord::Base
   validates_presence_of :dob, :email, :first_name, :home_phone, :last_name, :mobile, :role, :store_ids
   
   has_many :employments
+  has_many :stores, through: :employments
   has_many :unavailabilities
   has_many :shifts
   accepts_nested_attributes_for :unavailabilities, allow_destroy: true

@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @store.name %> <small><%= link_to 'Edit', edit_store_path(@store) %></small></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @store.name %>
-</p>
+<%= link_to '<', store_url(@store, start_date: @dates.first - 7.days), class: 'btn btn-large prev pull-left' %>
+<%= link_to '>', store_url(@store, start_date: @dates.first + 7.days), class: 'btn btn-large next pull-right' %>
 
-<p>
-  <b>Address:</b>
-  <%= @store.address %>
-</p>
-
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<table class="roster">
+  <tr>
+    <th></th>
+    <% @dates.each do |date| %>
+      <th><%=raw date.strftime('%A<br>%d %b %y') %></th>
+    <% end %>
+  </tr>
+  <% @employees.each do |employee| %>
+      <tr>
+        <td>
+          <%= employee.first_name %><br>
+          <%= employee.last_name %>
+        </td>
+        <%= render employee.shifts.select{ |s| s.date.in?(@dates) } %>
+      </tr>
+  <% end %>
+</table>

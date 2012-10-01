@@ -1,3 +1,3 @@
 jQuery ->
-  $('.shift_range').change ->
+  $('select.shift-range').change ->
     $(this).closest('form').submit()

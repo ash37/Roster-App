@@ -1,7 +1,8 @@
 class Store < ActiveRecord::Base
   validates_presence_of :address, :name
 
-  has_many :shifts, as: :shiftable
+  has_many :shifts
+  has_many :default_shifts
   has_many :employments
   has_many :employees, through: :employments
 
