@@ -6,6 +6,8 @@ class Store < ActiveRecord::Base
   has_many :employments
   has_many :employees, through: :employments
 
+  accepts_nested_attributes_for :default_shifts, allow_destroy: true
+
   WEEK_START_DAY = 3
 
   def self.week_start_day_name

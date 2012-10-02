@@ -70,7 +70,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to edit_store_path(@store), notice: 'Store was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

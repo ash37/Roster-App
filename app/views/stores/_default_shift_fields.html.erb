@@ -1,0 +1,9 @@
+<li>
+  <%= f.select :day, (0..6).map{ |i| [Date::DAYNAMES[i], i] } %>
+  <%= f.text_field :start_time, class: 'input-small' %>
+  <%= f.text_field :finish_time, class: 'input-small' %>
+  <%= f.text_field :duty %>
+  <%= f.text_field :notes %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to 'Delete', '#', class: 'remove_fields' %>
+</li>

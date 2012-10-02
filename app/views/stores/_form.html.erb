@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="actions">
-   <%= f.submit class: "btn btn-primary"%>
-  </div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <fieldset>
+    <legend>Default shifts</legend>
+    <ul>
+      <%= f.fields_for :default_shifts do |builder| %>
+      <%= render 'default_shift_fields', f: builder %>
+      <% end %>
+    </ul>
+    <%= link_to_add_fields 'Add default shift', f, :default_shifts %>
+  </fieldset>
+
+  <%= f.submit class: "btn btn-primary"%>
 <% end %>
