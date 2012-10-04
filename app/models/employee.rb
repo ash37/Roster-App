@@ -9,7 +9,7 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :shifts
   
   ROLES = ['Sandwich Artist', 'Shift Supervisor', 'Manager', 'Area Manager']
-  RATES = [9.79, 10.94, 13.06, 15.18, 17.29, 19.72, 21.17, 21.99, 22.40] 
+  RATES = [9.79, 10.94, 13.06, 15.18, 17.29, 19.72, 21.17, 21.99, 22.40, 25.00] 
   
   
   def pay_rate
@@ -18,6 +18,9 @@ class Employee < ActiveRecord::Base
       RATES[7]
     when manager?
       RATES[8]
+    when area_manager?
+      RATES[9]
+   
     when age <= 15
       RATES[0]
     when age == 16
@@ -43,7 +46,11 @@ class Employee < ActiveRecord::Base
     
   def manager?
     role == ROLES[2]
-  end    
+  end  
+  
+  def area_manager?
+    role == ROLES[3]
+  end   
       
   def age
       now = Time.now.utc.to_date
