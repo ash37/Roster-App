@@ -1,4 +1,6 @@
 RosterApp::Application.routes.draw do
+  resources :roles
+
   resources :employees
   resources :stores do
     resources :shifts
