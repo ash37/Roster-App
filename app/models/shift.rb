@@ -2,6 +2,10 @@ class Shift < ActiveRecord::Base
   belongs_to :employee
   belongs_to :store
 
+  def dup 
+    new_record = old_record.dup
+  end
+
   def start_time_finish_time
     "#{start_time}-#{finish_time}"
   end
