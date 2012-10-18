@@ -1,5 +1,17 @@
 .roster {
   select {
-    height: 80px;
-  }
+    height: 90px;
+    width: 140px;
+  } 
 }
+
+.hday {
+    color: #111111;
+    font-size: 25px;
+    font-weight: bold;
+  } 
+  
+.hsurname {
+    color: #111111;
+    font-size: 20px;
+  }   

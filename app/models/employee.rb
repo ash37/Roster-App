@@ -8,8 +8,9 @@ class Employee < ActiveRecord::Base
   accepts_nested_attributes_for :unavailabilities, allow_destroy: true
   accepts_nested_attributes_for :shifts
   
-  ROLES = ['Sandwich Artist', 'Shift Supervisor', 'Manager', 'Area Manager']
+  ROLES = ['Employee', 'Shift Supervisor', 'Manager', 'Area Manager']
   RATES = [9.79, 10.94, 13.06, (15.18*1.09), (17.29*1.09), (19.72*1.09), (21.17*1.09), (21.99*1.09), (22.40*1.09), (25.00*1.09)] 
+  
   
   
   def pay_rate

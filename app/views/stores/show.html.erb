@@ -7,16 +7,19 @@
   <tr>
     <th></th>
     <% @dates.each do |date| %>
-      <th><%=raw date.strftime('%A<br>%d %b %y') %></th>
+    <th><%=raw date.strftime('<span class="hday">%A</span><br>%d %b %y') %>&nbsp;&nbsp;<span class="label label-info">3/8&nbsp;26%</span>
+    </th>
     <% end %>
+    
   </tr>
   <% @employees.each do |employee| %>
       <tr>
-        <td>
-          <%= employee.first_name %><br>
-          <%= employee.last_name %>
+        <td><span class="hday">
+          <%= employee.first_name %></span><br><span class="hsurname">
+          <%= employee.last_name %></span>
         </td>
         <%= render employee.shifts.select{ |s| s.date.in?(@dates) } %>
       </tr>
   <% end %>
 </table>
+

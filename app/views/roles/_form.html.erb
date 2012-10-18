@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= f.label :level %><br />
-    <%= f.text_field :level %>
+    <%= f.select :level, Employee::ROLES %>
+    
   </div>
   <div class="field">
     <%= f.label :age %><br />

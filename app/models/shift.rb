@@ -1,6 +1,8 @@
 class Shift < ActiveRecord::Base
   belongs_to :employee
   belongs_to :store
+  
+  SHIFT_TYPE = ['Open', 'Close', 'Inventory', 'Wash Up']
 
   def dup 
     new_record = old_record.dup
