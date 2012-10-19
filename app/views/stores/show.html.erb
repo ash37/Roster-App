@@ -9,23 +9,8 @@
     <% @dates.each do |date| %>
       <th>
         <%=raw date.strftime('<span class="hday">%A</span><br>%d %b %y') %>
-        <span class="label label-info">3/8 26%</span>
       </th>
     <% end %>
-  </tr>
-  <tr>
-    <td><span class="hday">
-      Test</span><br><span class="hsurname">
-      Employee</span>
-    </td>
-    <td>
-      <div class="shift well">
-        <span class="shift-time">7am - 3pm</span><br>
-        <span class="shift-info">1/2hr break at 10am</span><br><br>
-        <span class="shift-info">OPEN</span><br>
-        <span class="shift-info">FM, BV, Coke</span>
-      </div>
-    </td>
   </tr>
   <% @employees.each do |employee| %>
       <tr>
