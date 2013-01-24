@@ -1,17 +1,13 @@
 <h1><%= @store.name %> <small><%= link_to 'Edit', edit_store_path(@store) %></small></h1>
-
-<%= link_to '<', store_url(@store, start_date: @dates.first - 7.days), class: 'btn btn-large prev pull-left' %>
-<%= link_to '>', store_url(@store, start_date: @dates.first + 7.days), class: 'btn btn-large next pull-right' %>
-
-<table class="roster">
+<table class="roster">  
   <tr>
-    <th></th>
-    <% @dates.each do |date| %>
-      <th>
-        <%=raw date.strftime('<span class="hday">%A</span><br>%d %b %y') %>
-        <span class="label label-info">3/8 26%</span>
-      </th>
-    <% end %>
+    <td><%= link_to '<', store_url(@store, start_date: @dates.first - 7.days), class: 'btn btn-small prev pull-right' %></td>
+      <% @dates.each do |date| %>
+        <th><%=raw date.strftime('<span class="hday">%A</span><br>%d %b %y') %>
+        <!-- <span class="label label-info">26%</span> -->
+        </th>
+        <% end %>
+    <td><%= link_to '>', store_url(@store, start_date: @dates.first + 7.days), class: 'btn btn-small next pull-left' %></td>
   </tr>
   <tr>
     <td><span class="hday">
@@ -21,11 +17,59 @@
     <td>
       <div class="shift well">
         <span class="shift-time">7am - 3pm</span><br>
-        <span class="shift-info">1/2hr break at 10am</span><br><br>
+        <span class="shift-info">1/2hr break at 10am</span><br>
+        <span class="badge badge-info pull-right">7.5</span><br>
         <span class="shift-info">OPEN</span><br>
         <span class="shift-info">FM, BV, Coke</span>
       </div>
     </td>
+    <td>
+      <div class="shift well">
+        <span class="shift-time">7:30am - 3pm</span><br>
+        <span class="shift-info">1/2hr break at 10am</span><br>
+        <span class="badge badge-info pull-right">7.5</span><br>
+        <span class="shift-info">OPEN</span><br>
+        <span class="shift-info">FM, BV, Coke</span>
+      </div>
+    </td>
+    <td>
+      <div class="shift well">
+        <span class="shift-time">7am - 3pm</span><br>
+        <span class="shift-info">1/2hr break at 10am</span><br>
+        <span class="badge badge-info pull-right">7.5</span><br>
+        <span class="shift-info">OPEN</span><br>
+        <span class="shift-info">FM, BV, Coke</span>
+      </div>
+    </td>
+    <td>
+      <div class="shift well">
+        <span class="shift-time">7am - 2:30pm</span><br>
+        <span class="shift-info">1/2hr break at 10am</span><br>
+        <span class="badge badge-info pull-right">7</span><br>
+        <span class="shift-info">OPEN</span><br>
+        <span class="shift-info">FM, BV, Coke</span>
+      </div>
+    </td>
+    <td>
+      <div>
+       
+      </div>
+    </td>
+    <td>
+      <div>
+       
+      </div>
+    </td>
+    <td>
+      <div class="shift well">
+        <span class="shift-time">3pm - 10:30pm</span><br>
+        <span class="shift-info">1/2hr break at 3pm</span><br>
+        <span class="badge badge-info pull-right">9</span><br>
+        <span class="shift-info">OPEN</span><br>
+        <span class="shift-info">FM, BV, Coke</span>
+      </div>
+    </td>
+    <td></td>
   </tr>
   <% @employees.each do |employee| %>
       <tr>
@@ -34,6 +78,7 @@
           <%= employee.last_name %></span>
         </td>
         <%= render employee.shifts.select{ |s| s.date.in?(@dates) } %>
+        <td></td>
       </tr>
   <% end %>
 </table>
